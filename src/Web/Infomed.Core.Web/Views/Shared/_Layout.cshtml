@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Infomed.Web</title>
+
+    <environment names="Development">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        @*<link rel="stylesheet" href="~/css/site.css" />*@
+    </environment>
+    <environment names="Staging,Production">
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+</head>
+<body style="height:100vh">
+    <div class="navbar navbar-fixed-top">
+        @*navbar-inverse*@
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a asp-area="" asp-controller="Books" asp-action="Index" class="navbar-brand" style="padding: 0px;">
+                    <img src="~/images/logo.jpg" style="width: 128px;" />
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a asp-area="agenda" asp-controller="Calendario" asp-action="Index">Calendario</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <div class="content" style="min-height: 64vh;">
+            @RenderBody()
+        </div>
+        <hr />
+        <footer class="small">
+            <p>La información y servicios contenidos en esta WEB van destinados exclusivamente a personal sanitario, dentro del territorio español, y representa evaluaciones y opiniones independientes de los autores, que no necesariamente reflejan las opiniones o recomendaciones de Infomed</p>
+            <span><b> Infomed Servicios Informáticos S.L. - Vía Augusta 158, 4ª planta - 08006 BARCELONA - CIF: B61349932</b></span><br />
+            <span>Registro Mercantil de Barcelona - Tomo 29.912 - Folio 123 - Sección 8 - Hoja B-165245.</span><br />
+            <span><b>E-mail: infomed@infomed.es - Tels.: 902 10 44 22 / +34 93 414 43 40 - Fax: +34 93 209 08 09</b></span>
+        </footer>
+    </div>
+
+    <environment names="Development">
+        @*<script src="~/lib/jquery/dist/jquery.js"></script>*@
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery">
+        </script>
+        @*<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>*@
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        @*<script src="~/js/site.js" asp-append-version="true"></script>*@
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery">
+        </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        @*<script src="~/js/site.min.js" asp-append-version="true"></script>*@
+    </environment>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
