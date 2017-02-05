@@ -12,7 +12,8 @@
     "Microsoft.AspNetCore.Mvc": "1.1.0",
     "Infomed.Core.Entities": "1.0.0-*",
     "Microsoft.AspNetCore.StaticFiles": "1.1.0",
-    "Infomed.Core.Services": "1.0.0-*"
+    "Infomed.Core.Services": "1.0.0-*",
+    "Swashbuckle.AspNetCore": "1.0.0-rc1"
   },
 
   "tools": {
