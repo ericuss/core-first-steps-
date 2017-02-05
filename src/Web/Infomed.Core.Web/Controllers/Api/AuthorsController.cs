@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Infomed.Core.Entities;
 using Infomed.Core.Services;
+using AutoMapper;
+using Infomed.Core.Web.Models;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,16 +16,19 @@ namespace Infomed.Core.Controllers.Api
     public class AuthorsController : Controller
     {
         private readonly IAuthorsService service;
+        private readonly IMapper mapper;
 
-        public AuthorsController(IAuthorsService Authorservice)
+        public AuthorsController(IAuthorsService Authorservice, IMapper mapper)
         {
             this.service = Authorservice;
+            this.mapper = mapper;
         }
         // GET: api/values
         [HttpGet]
-        public IEnumerable<Author> Get()
+        public IEnumerable<AuthorDto> Get()
         {
-            return service.Get();
+            var authors = service.Get();
+            return mapper.Map<List<AuthorDto>>(authors);
         }
 
         // GET api/values/5

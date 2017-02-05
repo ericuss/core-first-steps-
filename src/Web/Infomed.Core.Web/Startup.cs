@@ -24,6 +24,14 @@ namespace Infomed.Core.Web
             });
 
             Services.IoC.Configure(services);
+
+            var config = new AutoMapper.MapperConfiguration(cfg =>
+            {
+                Mapper.Configure(cfg);
+            });
+
+            var mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
