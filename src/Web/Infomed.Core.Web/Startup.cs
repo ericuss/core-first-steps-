@@ -27,10 +27,12 @@ namespace Infomed.Core.Web
 
             var config = new AutoMapper.MapperConfiguration(cfg =>
             {
-                Mapper.Configure(cfg);
+                cfg.AddProfile<MapperProfile>();
             });
 
+            config.AssertConfigurationIsValid();
             var mapper = config.CreateMapper();
+            
             services.AddSingleton(mapper);
         }
 
