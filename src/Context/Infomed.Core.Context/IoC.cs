@@ -10,7 +10,7 @@ namespace Infomed.Core.Context
     {
         public static void Configure(IServiceCollection services)
         {
-            services.AddScoped<IContext, Context>();
+            services.AddSingleton<IContext, Context>();
         }
     }
 }
