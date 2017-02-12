@@ -1,4 +1,5 @@
 ﻿using Infomed.Core.Context;
+using Infomed.Core.Context.Sql;
 using Infomed.Core.Entities;
 using System;
 using System.Collections.Generic;
@@ -7,27 +8,22 @@ using System.Threading.Tasks;
 
 namespace Infomed.Core.Services
 {
-    public class AuthorsService : IAuthorsService
+    public class AuthorsService : ServiceCore<Author, Guid>, IAuthorsService
     {
-        private IContext context;
+        public AuthorsService(LibraryContext context) : base(context) { }
 
-        public AuthorsService(IContext context)
-        {
-            this.context = context;
-        }
         public void Add(Author author)
         {
-            this.context.Authors.Add(author);
-            this.context.LoadBooks();
+            this.DbSet.Add(author);
         }
         public List<Author> Get()
         {
-            return this.context.Authors;
+            return this.DbSet.ToList();
         }
 
         public Author GetById(Guid id)
         {
-            return this.context.Authors.FirstOrDefault(b => b.Id == id);
+            return this.DbSet.FirstOrDefault(b => b.Id == id);
         }
 
         public void Update(Guid id, Author raw)
@@ -37,6 +33,8 @@ namespace Infomed.Core.Services
             {
                 authorToUpdate.Name = raw.Name;
             }
+
+            this.DbSet.Update(authorToUpdate);
         }
 
         public void Delete(Guid id)
@@ -44,7 +42,7 @@ namespace Infomed.Core.Services
             var authorToRemove = this.GetById(id);
             if (authorToRemove != null)
             {
-                this.context.Authors.Remove(authorToRemove);
+                this.DbSet.Remove(authorToRemove);
             }
         }
     }

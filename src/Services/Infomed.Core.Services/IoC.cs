@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
-
+﻿
 namespace Infomed.Core.Services
 {
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
     public static class IoC
     {
-        public static void Configure(IServiceCollection services)
+        public static void Configure(IServiceCollection services, IConfigurationRoot configuration)
         {
             services.AddScoped<IBooksService, BooksService>();
             services.AddScoped<IAuthorsService, AuthorsService>();
-
-            Context.IoC.Configure(services);
+            Context.Sql.Ioc.Configure(services, configuration);
         }
     }
 }

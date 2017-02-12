@@ -175,6 +175,32 @@
           "lib/netstandard1.3/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
         }
       },
+      "Microsoft.EntityFrameworkCore.SqlServer.Design/1.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational.Design": "1.1.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "1.1.0",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.EntityFrameworkCore.SqlServer.Design.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.EntityFrameworkCore.SqlServer.Design.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Tools/1.1.0-preview4-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Design": "1.1.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/_._": {}
+        }
+      },
       "Microsoft.Extensions.Caching.Abstractions/1.1.0": {
         "type": "package",
         "dependencies": {
@@ -2105,23 +2131,6 @@
         "runtime": {
           "netstandard1.6/Infomed.Core.Infrastructure.dll": {}
         }
-      },
-      "Informed.Core.Context.Sql/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v1.6",
-        "dependencies": {
-          "Infomed.Core.Entities": "1.0.0",
-          "Infomed.Core.Infrastructure": "1.0.0",
-          "Microsoft.EntityFrameworkCore.Design": "1.1.0",
-          "Microsoft.EntityFrameworkCore.SqlServer": "1.1.0",
-          "NETStandard.Library": "1.6.0"
-        },
-        "compile": {
-          "netstandard1.6/Informed.Core.Context.Sql.dll": {}
-        },
-        "runtime": {
-          "netstandard1.6/Informed.Core.Context.Sql.dll": {}
-        }
       }
     }
   },
@@ -2298,6 +2307,42 @@
         "lib/net451/Microsoft.EntityFrameworkCore.SqlServer.xml",
         "lib/netstandard1.3/Microsoft.EntityFrameworkCore.SqlServer.dll",
         "lib/netstandard1.3/Microsoft.EntityFrameworkCore.SqlServer.xml"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.SqlServer.Design/1.1.0": {
+      "sha512": "xq27REzgNW5GVG9JLabi5DcRi7VQ/AARBYzTNflwMXi048D5Fm/JPCZTRkVlIy9XpVNAIQ8io1l3GlCu+oQh9w==",
+      "type": "package",
+      "path": "Microsoft.EntityFrameworkCore.SqlServer.Design/1.1.0",
+      "files": [
+        "Microsoft.EntityFrameworkCore.SqlServer.Design.1.1.0.nupkg.sha512",
+        "Microsoft.EntityFrameworkCore.SqlServer.Design.nuspec",
+        "lib/net451/Microsoft.EntityFrameworkCore.SqlServer.Design.dll",
+        "lib/net451/Microsoft.EntityFrameworkCore.SqlServer.Design.xml",
+        "lib/netstandard1.3/Microsoft.EntityFrameworkCore.SqlServer.Design.dll",
+        "lib/netstandard1.3/Microsoft.EntityFrameworkCore.SqlServer.Design.xml"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.Tools/1.1.0-preview4-final": {
+      "sha512": "n7g5JB4YxLYCl32XCmjXEHDF/9J/DSeNYGjxGAzG1xUi/IXOCWd6T3XyEnDXsub7iFDvpB2VgUlh6wHDqmTZgA==",
+      "type": "package",
+      "path": "Microsoft.EntityFrameworkCore.Tools/1.1.0-preview4-final",
+      "files": [
+        "Microsoft.EntityFrameworkCore.Tools.1.1.0-preview4-final.nupkg.sha512",
+        "Microsoft.EntityFrameworkCore.Tools.nuspec",
+        "lib/net451/_._",
+        "lib/netstandard1.3/_._",
+        "tools/EntityFrameworkCore.PowerShell2.psd1",
+        "tools/EntityFrameworkCore.PowerShell2.psm1",
+        "tools/EntityFrameworkCore.psd1",
+        "tools/EntityFrameworkCore.psm1",
+        "tools/Microsoft.EntityFrameworkCore.Tools.dll",
+        "tools/about_EntityFrameworkCore.help.txt",
+        "tools/init.ps1",
+        "tools/install.ps1",
+        "tools/net451/ef.exe",
+        "tools/net451/ef.x86.exe",
+        "tools/netcoreapp1.0/ef.dll",
+        "tools/netcoreapp1.0/ef.runtimeconfig.json"
       ]
     },
     "Microsoft.Extensions.Caching.Abstractions/1.1.0": {
@@ -6477,26 +6522,23 @@
     },
     "Infomed.Core.Entities/1.0.0": {
       "type": "project",
-      "path": "../../Context/Infomed.Core.Entities/project.json",
-      "msbuildProject": "../../Context/Infomed.Core.Entities/Infomed.Core.Entities.xproj"
+      "path": "../Infomed.Core.Entities/project.json",
+      "msbuildProject": "../Infomed.Core.Entities/Infomed.Core.Entities.xproj"
     },
     "Infomed.Core.Infrastructure/1.0.0": {
       "type": "project",
       "path": "../../Infrastructure/Infomed.Core.Infrastructure/project.json",
       "msbuildProject": "../../Infrastructure/Infomed.Core.Infrastructure/Infomed.Core.Infrastructure.xproj"
-    },
-    "Informed.Core.Context.Sql/1.0.0": {
-      "type": "project",
-      "path": "../../Context/Informed.Core.Context.Sql/project.json",
-      "msbuildProject": "../../Context/Informed.Core.Context.Sql/Informed.Core.Context.Sql.xproj"
     }
   },
   "projectFileDependencyGroups": {
     "": [
       "Infomed.Core.Entities >= 1.0.0-*",
-      "Informed.Core.Context.Sql >= 1.0.0-*",
-      "Microsoft.Extensions.Configuration.Abstractions >= 1.1.0",
-      "Microsoft.Extensions.DependencyInjection.Abstractions >= 1.1.0",
+      "Infomed.Core.Infrastructure >= 1.0.0-*",
+      "Microsoft.EntityFrameworkCore.Design >= 1.1.0",
+      "Microsoft.EntityFrameworkCore.SqlServer >= 1.1.0",
+      "Microsoft.EntityFrameworkCore.SqlServer.Design >= 1.1.0",
+      "Microsoft.EntityFrameworkCore.Tools >= 1.1.0-preview4-final",
       "NETStandard.Library >= 1.6.0"
     ],
     ".NETStandard,Version=v1.6": []

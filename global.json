@@ -1,3 +1,3 @@
 {
-  "projects": [ "src/Services", "src/Context", "." ]
+  "projects": [ "src/Services", "src/Context", ".", "src/Infrastructure" ]
 }
