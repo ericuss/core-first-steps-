@@ -46,13 +46,13 @@ namespace Infomed.Core.Web
                 app.UseDeveloperExceptionPage();
             }
             app.UseStaticFiles();
-            app.UseWelcomePage();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Books}/{action=Index}/{id?}");
             });
+            app.UseWelcomePage();
 
             //app.Run(async (context) =>
             //{
