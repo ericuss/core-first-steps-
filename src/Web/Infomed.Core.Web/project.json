@@ -12,12 +12,12 @@
     "Microsoft.AspNetCore.Mvc": "1.1.0",
     "Infomed.Core.Entities": "1.0.0-*",
     "Microsoft.AspNetCore.StaticFiles": "1.1.0",
-    "Infomed.Core.Services": "1.0.0-*",
     "Swashbuckle.AspNetCore": "1.0.0-rc1",
     "AutoMapper": "5.2.0",
     "Microsoft.Extensions.Configuration.FileExtensions": "1.1.0",
     "Microsoft.Extensions.Configuration.Json": "1.1.0",
-    "Microsoft.Extensions.Configuration.UserSecrets": "1.1.0"
+    "Microsoft.Extensions.Configuration.UserSecrets": "1.1.0",
+    "Infomed.Core.Domains": "1.0.0-*"
   },
 
   "tools": {

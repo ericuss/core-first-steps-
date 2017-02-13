@@ -3862,6 +3862,20 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
+      "Infomed.Core.Domains/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v1.6",
+        "dependencies": {
+          "Infomed.Core.Repositories": "1.0.0",
+          "NETStandard.Library": "1.6.0"
+        },
+        "compile": {
+          "netstandard1.6/Infomed.Core.Domains.dll": {}
+        },
+        "runtime": {
+          "netstandard1.6/Infomed.Core.Domains.dll": {}
+        }
+      },
       "Infomed.Core.Entities/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.6",
@@ -3888,21 +3902,19 @@
           "netstandard1.6/Infomed.Core.Infrastructure.dll": {}
         }
       },
-      "Infomed.Core.Services/1.0.0": {
+      "Infomed.Core.Repositories/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
           "Infomed.Core.Entities": "1.0.0",
           "Informed.Core.Context.Sql": "1.0.0",
-          "Microsoft.Extensions.Configuration.Abstractions": "1.1.0",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.1.0",
           "NETStandard.Library": "1.6.0"
         },
         "compile": {
-          "netstandard1.6/Infomed.Core.Services.dll": {}
+          "netstandard1.6/Infomed.Core.Repositories.dll": {}
         },
         "runtime": {
-          "netstandard1.6/Infomed.Core.Services.dll": {}
+          "netstandard1.6/Infomed.Core.Repositories.dll": {}
         }
       },
       "Informed.Core.Context.Sql/1.0.0": {
@@ -10260,6 +10272,11 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
+    "Infomed.Core.Domains/1.0.0": {
+      "type": "project",
+      "path": "../../Domains/Infomed.Core.Domains/project.json",
+      "msbuildProject": "../../Domains/Infomed.Core.Domains/Infomed.Core.Domains.xproj"
+    },
     "Infomed.Core.Entities/1.0.0": {
       "type": "project",
       "path": "../../Context/Infomed.Core.Entities/project.json",
@@ -10270,10 +10287,10 @@
       "path": "../../Infrastructure/Infomed.Core.Infrastructure/project.json",
       "msbuildProject": "../../Infrastructure/Infomed.Core.Infrastructure/Infomed.Core.Infrastructure.xproj"
     },
-    "Infomed.Core.Services/1.0.0": {
+    "Infomed.Core.Repositories/1.0.0": {
       "type": "project",
-      "path": "../../Services/Infomed.Core.Services/project.json",
-      "msbuildProject": "../../Services/Infomed.Core.Services/Infomed.Core.Services.xproj"
+      "path": "../../Repositories/Infomed.Core.Repositories/project.json",
+      "msbuildProject": "../../Repositories/Infomed.Core.Repositories/Infomed.Core.Repositories.xproj"
     },
     "Informed.Core.Context.Sql/1.0.0": {
       "type": "project",
@@ -10284,8 +10301,8 @@
   "projectFileDependencyGroups": {
     "": [
       "AutoMapper >= 5.2.0",
+      "Infomed.Core.Domains >= 1.0.0-*",
       "Infomed.Core.Entities >= 1.0.0-*",
-      "Infomed.Core.Services >= 1.0.0-*",
       "Microsoft.AspNetCore.Diagnostics >= 1.0.0",
       "Microsoft.AspNetCore.Mvc >= 1.1.0",
       "Microsoft.AspNetCore.Mvc.Core >= 1.1.1",

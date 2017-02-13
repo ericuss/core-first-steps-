@@ -38,7 +38,7 @@
                 c.SwaggerDoc("v1", new Info { Title = "Library API", Version = "v1" });
             });
 
-            Services.IoC.Configure(services, this.Configuration);
+            Domains.IoC.Configure(services, this.Configuration);
 
             var config = new AutoMapper.MapperConfiguration(cfg =>
             {
