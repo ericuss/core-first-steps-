@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.Extensions.PlatformAbstractions;
+using System.IO;
 
 namespace Infomed.Core.Web
 {
@@ -21,6 +23,8 @@ namespace Infomed.Core.Web
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "Library API", Version = "v1" });
+                var filePath = Path.Combine(PlatformServices.Default.Application.ApplicationBasePath, "Infomed.Core.Web.XML");
+                c.IncludeXmlComments(filePath);
             });
 
             Services.IoC.Configure(services);
@@ -42,6 +46,7 @@ namespace Infomed.Core.Web
                 app.UseDeveloperExceptionPage();
             }
             app.UseStaticFiles();
+            app.UseWelcomePage();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

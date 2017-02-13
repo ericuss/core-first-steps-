@@ -27,6 +27,12 @@ namespace Infomed.Core.Controllers.Api
         }
 
         // GET api/values/5
+        /// <summary>
+        /// obtengo un libro
+        /// </summary>
+        /// <remarks>Alucinante!</remarks>
+        /// <param name="id">id del libro</param>
+        /// <returns>retorna un libro concreto</returns>
         [HttpGet("{id}")]
         public Book Get(Guid id)
         {

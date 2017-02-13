@@ -8,7 +8,11 @@ namespace Infomed.Core.Entities
 
     public class Author : EntityCore<Guid>
     {
-        public Author(string name) : base(Guid.NewGuid())
+        public Author() : base(Guid.NewGuid())
+        {
+
+        }
+        public Author(string name) : this()
         {
             this.Name = name;
         }
